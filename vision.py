@@ -28,8 +28,11 @@ class Vision(object):
         while True:
             # Capture frame-by-frame
             ret, frame = video_capture.read()
-
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            
+            if ret is True:
+                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            else:
+                continue
 
             faces = face_cascade.detectMultiScale(
                 gray,
@@ -55,8 +58,11 @@ if __name__ == "__main__":
     while True:
         # Capture frame-by-frame
         ret, frame = video_capture.read()
-
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        
+        if ret is True:
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        else:
+            continue
 
         faces = faceCascade.detectMultiScale(
             gray,
